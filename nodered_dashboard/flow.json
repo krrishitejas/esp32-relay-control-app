@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mqtt-broker",
+    "type": "mqtt-broker",
+    "name": "Local MQTT",
+    "broker": "192.168.x.x",
+    "port": "1883",
+    "clientid": "node-red-dashboard"
+  },
+  {
+    "id": "energy-subscriber",
+    "type": "mqtt in",
+    "topic": "energy",
+    "qos": "2",
+    "broker": "mqtt-broker",
+    "name": "Energy Data"
+  },
+  {
+    "id": "gauge",
+    "type": "ui_gauge",
+    "group": "dashboard-group",
+    "order": 1,
+    "width": 0,
+    "height": 0,
+    "name": "Power Usage",
+    "label": "Watts",
+    "format": "{{value}} W",
+    "min": 0,
+    "max": "500",
+    "colors": ["#00b500","#e6e600","#ca3838"]
+  }
+]
